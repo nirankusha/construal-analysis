@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "construal-analysis"
+version = "0.3.0"
+description = "Modular analysis pipeline for construal mapping on selected.parquet (one row per sentence×model)"
+authors = [{name="Researcher"}]
+requires-python = ">=3.10"
+dependencies = [
+    "pandas>=2.0",
+    "numpy>=1.26",
+    "scipy>=1.10",
+    "statsmodels>=0.14",
+    "tabulate>=0.9",
+    "pyarrow>=14",
+]
