@@ -12,7 +12,7 @@ def holm_correction(pvals):
     return p_adj
 
 def proportion_tests(k: int, n: int, p0: float=0.5) -> dict:
-    stat, pz = proportions_ztest(k, n, value=p0, alernative="larger")
+    stat, pz = proportions_ztest(k, n, value=p0, alternative="larger")
     try:
         p_exact = sm_binom_test(k, n, prop=p0, alternative="larger")
     except TypeError:
