@@ -30,15 +30,25 @@ def run(df: pd.DataFrame, cfg: Config):
 
     # Mixed model τ with controls
     if all(c in df.columns for c in [cfg.tau_col, cfg.order_col, cfg.item_col]):
-        sub = df[[cfg.tau_col, cfg.order_col, cfg.item_col, cfg.family_col, cfg.gen2_col]].dropna().copy()
+        cols = [cfg.tau_col, cfg.order_col, cfg.item_col]
+        for opt in [cfg.family_col, cfg.gen2_col]:
+            if opt in df.columns:
+                cols.append(opt)
+        sub = df[cols].dropna().copy()
         for c in [cfg.order_col, cfg.family_col, cfg.gen2_col]:
             if c in sub.columns:
                 sub[c] = sub[c].astype("category")
         try:
+            formula = f"{cfg.tau_col} ~ C({cfg.order_col})"
+            if cfg.family_col in sub.columns:
+                formula += f" + C({cfg.family_col})"
+            if cfg.gen2_col in sub.columns:
+                formula += f" + C({cfg.gen2_col})"
             mdf = mixedlm_random_intercept(
-                f"{cfg.tau_col} ~ C({cfg.order_col}) + C({cfg.family_col}) + C({cfg.gen2_col})",
-                sub, sub[cfg.item_col].astype(str)
-            )
+                formula,
+                sub,
+                sub[cfg.item_col].astype(str)
+                )                                                                                                                                                                          
             write_text(mdf.summary().as_text(), f"{outdir}/step04_tau_mixed.txt")
             outs.append({"kind":"txt","path":f"{outdir}/step04_tau_mixed.txt"})
         except Exception as e:
