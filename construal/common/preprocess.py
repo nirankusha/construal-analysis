@@ -125,14 +125,24 @@ def derive_design(df: pd.DataFrame, cfg: Config) -> pd.DataFrame:
             elif "src_order" in df.columns:
                 exp = df["src_order"].astype("string").map(expected_from_pl_order_str)
             
-            det = df[cfg.det_col].astype("string")
-            # Only score success for scorable pairs (both Def/Indef)
-            mask = det.isin(["Def", "Indef"]) & exp.isin(["Def", "Indef"])
-            
+            # Normalize both sides to lowercase (and strip, just in case)
+            det = df[cfg.det_col].astype("string").str.strip().str.lower()
+            exp = exp.astype("string").str.strip().str.lower()
+
+            # Only score success for scorable pairs (both def/indef)
+            valid = {"def", "indef"}
+            mask = det.isin(valid) & exp.isin(valid)
             # Create comparison
-            cmp_bool = (det == exp)
-            arr = np.where(mask, cmp_bool.fillna(False), np.nan)
-            df[cfg.success_col] = pd.Series(arr).map({True: 1, False: 0}).astype("Int64")
+            cmp_bool = det.eq(exp)
+            arr = np.where(
+                mask, cmp_bool.fillna(False).to_numpy(dtype=object), np.nan
+            )
+
+            df[cfg.success_col] = (
+                pd.Series(arr, index=df.index)
+                .map({True: 1, False: 0})
+                .astype("Int64")
+            )
             success_created = True
         
         # If we still couldn't create the success column, create a dummy one
