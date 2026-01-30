@@ -3,6 +3,7 @@ from .common.config import Config
 from .common.io import read_df, write_text
 from .common.preprocess import derive_design
 from .steps import (
+    step00_preflight,
     step01_chance, step02_success_sv_vs, step03_determiner_dist,
     step04_alignment_quality, step05_tau_vs_determiner,
     step06_architecture_success, step07_strategy_success,
@@ -13,6 +14,7 @@ def run_pipeline(args):
     df = derive_design(read_df(cfg.in_path), cfg)
 
     step_map = {
+        "0": step00_preflight,
         "1": step01_chance,
         "2": step02_success_sv_vs,
         "3": step03_determiner_dist,
