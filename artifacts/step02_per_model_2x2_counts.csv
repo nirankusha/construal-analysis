@@ -1,0 +1,8 @@
+model,SV_fail,SV_success,VS_fail,VS_success
+marian:o2m:seq,67,0,41,0
+marian:o2o:seq,67,0,41,0
+mbart:m2m:seq,67,0,41,0
+mbart:m2o:seq,67,0,41,0
+mbart:o2m:seq,67,0,41,0
+mt5:m2m:seq,67,0,41,0
+mt5:o2o:seq,67,0,41,0

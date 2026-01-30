@@ -8,7 +8,14 @@ def ensure_dir(path: str | os.PathLike) -> None:
 def read_df(path: str | os.PathLike) -> pd.DataFrame:
     path = Path(path)
     if path.suffix.lower() == ".parquet":
-        return pd.read_parquet(path)
+         try:
+            return pd.read_parquet(path)
+         except ImportError as exc:
+            raise ImportError(
+                "Parquet support is unavailable. Install a parquet engine such as "
+                "`pyarrow` (recommended) or `fastparquet`, then re-run the pipeline. "
+                "For example: `pip install pyarrow`."
+            ) from exc
     return pd.read_csv(path)
 
 def write_table(df: pd.DataFrame, path: str) -> None:

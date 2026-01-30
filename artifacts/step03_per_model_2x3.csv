@@ -1,0 +1,8 @@
+model,SV_def,SV_ind,SV_none,VS_def,VS_ind,VS_none
+marian:o2m:seq,0,0,0,0,0,0
+marian:o2o:seq,0,0,0,0,0,0
+mbart:m2m:seq,0,0,0,0,0,0
+mbart:m2o:seq,0,0,0,0,0,0
+mbart:o2m:seq,0,0,0,0,0,0
+mt5:m2m:seq,0,0,0,0,0,0
+mt5:o2o:seq,0,0,0,0,0,0

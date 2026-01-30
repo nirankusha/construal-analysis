@@ -1,0 +1,6 @@
+Rows: 798
+Columns: 34
+Missing required columns: None
+Required columns below 95% coverage: order_cond, ann_align_kendall_tau
+Columns present:
+ann_align_kendall_tau, ann_align_pairs, ann_order, ann_order_binary, ann_subj_span, ann_target_branching, ann_target_positions, beam_used, cand_id, comet_qe_da, construal_match_bin, decode_params, det_cat, item_id, labse_cross, mode, model, order_cond, rt_bleu, rt_chrf, rt_sem, rt_ter, selected_flag, sent_id, src_det, src_order, src_order_binary, src_pl, src_subj_span, strategy, tag, text_en, top_p_used, versions

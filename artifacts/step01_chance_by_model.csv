@@ -1,0 +1,8 @@
+n,k,prop,z,p_z,p_exact,model
+114,0,0.0,-inf,1.0,1.0,marian:o2m:seq
+114,0,0.0,-inf,1.0,1.0,marian:o2o:seq
+114,0,0.0,-inf,1.0,1.0,mbart:m2m:seq
+114,0,0.0,-inf,1.0,1.0,mbart:m2o:seq
+114,0,0.0,-inf,1.0,1.0,mbart:o2m:seq
+114,0,0.0,-inf,1.0,1.0,mt5:m2m:seq
+114,0,0.0,-inf,1.0,1.0,mt5:o2o:seq

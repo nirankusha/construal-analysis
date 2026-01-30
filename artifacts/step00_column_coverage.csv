@@ -1,0 +1,16 @@
+column,required,present,non_null,total,coverage,dtype
+sent_id,True,True,798.0,798,1.0,int64
+item_id,True,True,798.0,798,1.0,int64
+model,True,True,798.0,798,1.0,string
+order_cond,True,True,756.0,798,0.9473684210526315,category
+det_cat,True,True,798.0,798,1.0,category
+construal_match_bin,True,True,798.0,798,1.0,Int64
+ann_align_kendall_tau,True,True,0.0,798,0.0,float64
+model_family,False,False,,798,,
+gen2,False,False,,798,,
+strategy,False,True,798.0,798,1.0,string
+beam_used,False,True,0.0,798,0.0,object
+top_p_used,False,True,798.0,798,1.0,float64
+rt_chrf,False,True,798.0,798,1.0,float64
+rt_bleu,False,True,798.0,798,1.0,float64
+rt_ter,False,True,798.0,798,1.0,float64
