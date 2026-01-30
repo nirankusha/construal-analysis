@@ -1,1 +1,0 @@
-Step06 skipped: required columns missing.

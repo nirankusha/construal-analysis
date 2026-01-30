@@ -1,1 +1,0 @@
-Completed steps: 00_preflight, 01_chance, 02_success_sv_vs, 03_determiner_dist, 04_alignment_quality, 05_tau_vs_discrete, 06_architecture_success, 07_strategy_success

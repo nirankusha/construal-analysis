@@ -1,8 +1,0 @@
-model,chi2,p,dof,V,n,p_holm
-marian:o2m:seq,,,2,,0,
-marian:o2o:seq,,,2,,0,
-mbart:m2m:seq,,,2,,0,
-mbart:m2o:seq,,,2,,0,
-mbart:o2m:seq,,,2,,0,
-mt5:m2m:seq,,,2,,0,
-mt5:o2o:seq,,,2,,0,
